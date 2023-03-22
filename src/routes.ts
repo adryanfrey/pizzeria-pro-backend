@@ -21,6 +21,8 @@ import { DetailOrderController } from "./controllers/order/DetailOrderController
 import { FinishOrderController } from "./controllers/order/FinishOrderController";
 import { DeleteProductController } from "./controllers/product/DeleteProductController";
 import { WelcomeController } from "./controllers/Welcome";
+import DeleteCategoryController from "./controllers/category/DeleteCategoryController";
+
 const router = Router()
 
 router.get('/', new WelcomeController().handle)
@@ -41,6 +43,8 @@ router.get('/me', isAuthenticated,  new DetailUserController().handle)
 router.post('/category', isAuthenticated, new CreateCategoryController().handle)
 // list categories
 router.get('/category', isAuthenticated, new ListCategoryController().handle)
+// delete category
+router.delete('/category', isAuthenticated, new DeleteCategoryController().handle)
 
 
 
