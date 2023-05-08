@@ -12,15 +12,15 @@ export class CreateUserService {
     async execute({ name, email, password }: UserRequest) {
 
         if (!email) {
-            throw new Error('Unvalid email')
+            throw new Error('Invalid email')
         }
 
         if (!name) {
-            throw new Error('Unvalid name')
+            throw new Error('Invalid name')
         }
 
         if (!password) {
-            throw new Error('Unvalid password')
+            throw new Error('Invalid password')
         }
 
         const emailAlreadyExist = await prismaClient.user.findFirst({
